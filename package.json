@@ -1,0 +1,13 @@
+{
+  "name": "ypg-ex",
+  "version": "0.0.1",
+  "description": "Esqueleto MVC para API utilizando express",
+  "main": "index.js",
+  "repository": "https://github.com/ypgyan/ypg-ex.git",
+  "author": "Yan de Paula <yanw100@gmail.com>",
+  "license": "apache2",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
