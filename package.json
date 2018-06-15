@@ -1,5 +1,8 @@
 {
   "name": "ypg-ex",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "version": "0.0.1",
   "description": "Esqueleto MVC para API utilizando express",
   "main": "index.js",
@@ -8,6 +11,7 @@
   "license": "apache2",
   "private": true,
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5"
   }
 }
