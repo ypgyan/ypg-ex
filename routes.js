@@ -1,6 +1,5 @@
 var express = require('express')
 var router = express.Router()
-var example = require('./routes/example')
 var home = require('./routes/home')
 
 // middleware that is specific to this router
@@ -9,11 +8,7 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 // This is the standard home route of YPG 
-router.get('/', function (req, res) {
-  res.send('Welcome to YPG')
-})
-
-router.use('/example', example)
+router.get('/', home)
 router.use('/home', home)
 
 module.exports = router
