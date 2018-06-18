@@ -1,11 +1,18 @@
-var db = require('../common/dbConfig')
+var db = require('../common/db')
 
-exports.getWelcomeMessage = function(req,res){
-    db.connect()
-    query = 'SELECT msg_author,msg_body FROM message WHERE msg_id = 1 '
-    db.query( query, function(err, results, fields) {
-        if (err) throw err
-        console.log('the solution is: ',results)
+exports.getWelcomeMessage = function() {
+    sql = "SELECT * FROM message"
+    return new Promise((resolve, reject) => {
+        db.connect()
+        db.query( sql,(err, rows) => {
+            if(err){
+                db.end()
+                return reject(err)
+            }
+            db.end()
+            console.log("executou")
+            resolve(JSON.parse(JSON.stringify(rows[0])))
+        })
     })
-    db.end()
 }
+

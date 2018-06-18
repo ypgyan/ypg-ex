@@ -1,5 +1,11 @@
 var homeModel = require('../models/homeModel')
 
 exports.welcome = function(req, res) {
-    res.send(homeModel.getWelcomeMessage());
+    homeModel.getWelcomeMessage()
+        .then((results) => {
+            res.send(results)
+        })
+        .catch(function(err){
+            console.log(err)
+        })
 }
