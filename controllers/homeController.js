@@ -1,5 +1,7 @@
 var homeModel = require('../models/homeModel')
 
+// Just a example of a standard function
+// This function dont receive params
 exports.welcome = function(req, res) {
     homeModel.getWelcomeMessage()
         .then((results) => {

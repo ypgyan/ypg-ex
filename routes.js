@@ -7,10 +7,11 @@ router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now())
   next()
 })
+
 // This is the Routes for homeController 
 router.get('/', home.welcome)
 router.get('/home', home.welcome)
 router.get('/home/:id', home.getMessage)
-router.use('/home/insert', home.insert) // this should be POST
+router.post('/home/insert', home.insert) // this should be POST
 
 module.exports = router
