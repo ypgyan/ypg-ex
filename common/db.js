@@ -7,4 +7,5 @@ const db = mysql.createConnection({
   database: "ypg"
 });
 
+
 module.exports = db
