@@ -4,7 +4,7 @@
     "start": "nodemon index.js"
   },
   "version": "0.0.1",
-  "description": "APP MVC para API utilizando express",
+  "description": "APP MC para API utilizando express",
   "main": "index.js",
   "repository": "https://github.com/ypgyan/ypg-ex.git",
   "author": "Yan de Paula <yanw100@gmail.com>",
