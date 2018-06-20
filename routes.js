@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var home = require('./controllers/homeController')
+var home = require('./controllers/home')
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next) {

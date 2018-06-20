@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
-const db = require('./common/db')
 const bodyParser = require('body-parser')
+// PASSPORT
+const passport = require('passport')  
+const session = require('express-session')
 
 // Calling the express router Class
 const routes = require('./routes')

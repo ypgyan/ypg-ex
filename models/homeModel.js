@@ -1,5 +1,7 @@
 var db = require('../common/db')
 
+//  GET FUNCTIONS
+
 exports.getWelcomeMessage = function() {
     sql = "SELECT * FROM message"
     return new Promise((resolve, reject) => {
@@ -27,6 +29,8 @@ exports.getMessagebyId = function(id) {
     })
 }
 
+// INSERT FUNCTIONS
+
 exports.insertMessage = function(args) {
     sql = "INSERT INTO message (msg_author,msg_body) VALUES(?,?)"
     return new Promise ((resolve,reject) => {
@@ -39,3 +43,8 @@ exports.insertMessage = function(args) {
         })
     })
 }
+
+// UPDATE FUNCTIONS
+
+// DELETE FUNCTIONS
+
