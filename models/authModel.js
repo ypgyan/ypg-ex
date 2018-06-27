@@ -1,29 +1,15 @@
-var db = require('mysql')
+var db = require('../common/db')
 
-// FUNCTION TO FIND USER BY USERNAME
-exports.findUser = function(username) {
-    sql = "SELECT * FROM user WHERE usu_login = ?";
-    return new Promise ((resolve,reject) => {
-        db.query(sql,username,(err,rows) => {
-            if (err) {
-                console.log("Usuario não encontrado")
-                return reject(err)
-            }
-            console.log("Usuario encontrado pelo Username")
-            resolve(JSON.parse(JSON.stringify(rows[0])))
-        })
-    })
-}
 
-exports.findUserbyId = function(id){
-    sql = "SELECT * FROM user WHERE usu_id = ?";
-    return new Promise ((resolve,reject) => {
+exports.getUserbyId = function(id) {
+    sql = "SELECT * FROM user WHERE usu_id = ?"
+    return new Promise((resolve, reject) => {
         db.query(sql,id,(err,rows) => {
-            if (err) {
-                console.log("Usuario não encontrado")
+            if(err){
+                console.log("Erro ao executar GETUSERBYID.")
                 return reject(err)
             }
-            console.log("Usuario encontrado pelo ID")
+            console.log("GETUSERBYID executado com sucesso.")
             resolve(JSON.parse(JSON.stringify(rows[0])))
         })
     })
