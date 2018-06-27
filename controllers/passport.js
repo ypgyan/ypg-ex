@@ -1,8 +1,7 @@
 // auth.js
 const passport = require("passport");
 const passportJWT = require("passport-jwt");
-const users = require("./users.js");
-const cfg = require("./configJwt.js");
+const cfg = require("../common/configJwt");
 const authModel = require('../models/authModel')
 const ExtractJwt = passportJWT.ExtractJwt;
 const Strategy = passportJWT.Strategy;
@@ -14,12 +13,15 @@ var params = {
 
 module.exports = function() {
   var strategy = new Strategy(params, function(payload, done) {
-    var user = authModel.findUserbyId(payload.id) || null;
-    if (user) {
-      return done(null, {id: user.id});
-    } else {
-      return done(new Error("User not found"), null);
-    }
+    authModel.getUserbyId(payload.id).then((user) => {
+      if (user) {
+        return done(null, {id: user.id});
+      } else {
+        return done(new Error("User not found"), null);
+      }
+    }).catch(
+      cosole.log("Error in authentication")
+    )
   });
   passport.use(strategy);
   return {
